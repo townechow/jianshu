@@ -6,9 +6,9 @@ export const HeaderWrapper = styled.div `
     position:relative;
     height:58px;
     border-bottom:1px solid #f0f0f0;
-    `;//创建了应该带样式的div标签组件
+`;//创建了应该带样式的div标签组件
 
-//logo
+//logo start
 export const Logo = styled.a.attrs({
     href:'/'
 }) `
@@ -20,8 +20,8 @@ export const Logo = styled.a.attrs({
     height:56px;
     background: url(${logoPic});
     background-size: contain;
-    `;//创建了应该带样式的a标签组件,带href属性。
-
+`;//创建了应该带样式的a标签组件,带href属性。
+//logo end
 
 export const Nav = styled.div `
     width: 945px;
@@ -30,7 +30,7 @@ export const Nav = styled.div `
     box-sizing: border-box;
     margin: 0 auto;
    
-    `;
+`;
 export const NavItem = styled.div `
     line-height: 56px;
     padding: 0 15px;
@@ -48,6 +48,7 @@ export const NavItem = styled.div `
     }
 `;
 
+//搜素框 
 export const SearchWrapper = styled.div `
     position: relative;
     float: left;
@@ -105,6 +106,53 @@ export const NavSearch = styled.input.attrs({
 
 `;
 
+export const SearchInfo = styled.div `
+    position: absolute;
+    lefe: 0;
+    top: 56px;
+    width: 240px;
+    padding: 0 24px;
+    
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+
+`;
+export const SearchInfoTitle = styled.div `
+    
+    margin-top: 20px;
+    margin-bottom: 15px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #969696;
+`;
+
+export const SearchInfoSwitch = styled.a.attrs({
+    href:'https://www.jianshu.com/'
+})` 
+    float: right;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #969696;
+
+`;
+
+export const SearchInfoItem = styled.a `
+    display: inline-block;
+    float: left;
+    line-height: 20px;
+    padding: 0 5px;
+    margin-right: 10px;
+    margin-bottom: 10px
+    font-size: 13px;
+    border: 1.5px solid #ddd;
+    color: #787878;
+    border-radius: 2px;
+`;
+export const SearchInfoList = styled.div `
+
+`;
+
+//注册、写文章 start
 export const Addition = styled.div `
     position: absolute;
     right: 0;
@@ -112,21 +160,21 @@ export const Addition = styled.div `
     height: 56px;
 
 `;
-
 export const Button = styled.div `
-float: right;
-margin-top: 9px;
-margin-right: 20px;
-padding: 0 20px;
-line-height: 38px;
-border-radius: 19px;
-border: 1px solid #ec6149;
-font-size: 14px;
-&.reg {
-    color: #ec6149;
-}
-&.writting {
-    color: #fff;
-    background: #ec6149;
-}
+    float: right;
+    margin-top: 9px;
+    margin-right: 20px;
+    padding: 0 20px;
+    line-height: 38px;
+    border-radius: 19px;
+    border: 1px solid #ec6149;
+    font-size: 14px;
+    &.reg {
+        color: #ec6149;
+    }
+    &.writting {
+        color: #fff;
+        background: #ec6149;
+    }
 `;
+//注册、写文章 end
