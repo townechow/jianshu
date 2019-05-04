@@ -53,7 +53,7 @@ export const SearchWrapper = styled.div `
     position: relative;
     float: left;
     
-    .iconfont {
+    .zoom {
         position: absolute;
         right: 5px;
         bottom: 5px;
@@ -125,14 +125,20 @@ export const SearchInfoTitle = styled.div `
     color: #969696;
 `;
 
-export const SearchInfoSwitch = styled.a.attrs({
-    href:'https://www.jianshu.com/'
-})` 
+export const SearchInfoSwitch = styled.span` 
     float: right;
     font-size: 13px;
     cursor: pointer;
-    text-decoration: none;
-    color: #969696;
+    .spin {
+        dislplay: block;
+        float:left;
+        font-size: 12px;
+        margin-right: 2px;
+        transition: all .5s ease-in;  //过渡效果
+        //transform: rotate(90deg);  //旋转
+        transform-origin: center center; // 旋转中心
+
+    }
 
 `;
 
