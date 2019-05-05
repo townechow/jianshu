@@ -53,6 +53,7 @@ export const SearchWrapper = styled.div `
     position: relative;
     float: left;
     
+    
     .zoom {
         position: absolute;
         right: 5px;
@@ -112,7 +113,7 @@ export const SearchInfo = styled.div `
     top: 56px;
     width: 240px;
     padding: 0 24px;
-    
+    background: #fff;
     box-shadow: 0 0 8px rgba(0, 0, 0, .2);
 
 `;
