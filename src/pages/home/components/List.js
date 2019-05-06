@@ -1,19 +1,22 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import * as actionCreators from '../store/actionCreators'
 
 import {
     ListItem,
     ListInfo,
+    LoadMore
 } from '../style';
 
 class List extends Component {
     render() {
+        const { list,getMore,page } = this.props
         return(
             <Fragment>
             {
-                this.props.list.map((item) =>{
+                list.map((item,index) =>{
                     return (
-                        <ListItem key={item.get('id')}>
+                        <ListItem key= {index}> {/*item.get('id')*/}
                             <img
                                 className='list-pic'
                                 src={item.get('imgUrl')}
@@ -27,14 +30,22 @@ class List extends Component {
                     )
                 })
             }
+            <LoadMore onClick={()=>getMore(page)}>更多内容</LoadMore>
             </Fragment>
         )
     }
 }
 
 const mapSateToProps = (state) => ({
-    list: state.get('home').get('articleList')
+    list: state.get('home').get('articleList'),
+    page: state.getIn(['home','aticelPage'])
+});
+const mapDispatchToProps = (dispatch) => ({
+    getMore(page){
+        const action = actionCreators.getMoreList(page)
+        dispatch(action)
+    }
 })
 
 
-export default connect(mapSateToProps,null) (List);
+export default connect(mapSateToProps, mapDispatchToProps) (List);

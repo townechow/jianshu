@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+
 import {connect} from 'react-redux'
 import List from './components/List'
 import Recommend from './components/Recommend'
@@ -9,12 +9,17 @@ import {
     HomeWapper,
     HomeLeft,
     HomeRight,
-
+    BackTop
 
 } from './style.js'
+import {actionCreators} from './store/index';
+
 
 
 class Home extends Component {
+    handleScrollTop() {
+        window.scrollTo(0, 0);
+    }
     render() {
         return(
             <HomeWapper>
@@ -30,32 +35,43 @@ class Home extends Component {
                     <Recommend>Recommend</Recommend>
                     <Write>Write</Write>
                 </HomeRight>
+                { this.props.showScroll ?  <BackTop onClick={this.handleScrollTop}>回到顶部</BackTop> : null}
+               
             </HomeWapper>
         )
     }
     componentDidMount(){
-        axios.get('/api/home.json').then((res)=>{
-            const result=res.data.data;
-            console.log(result)
-            const action = {
-                type: 'change_home_data',
-                topicList: result.topicList,
-                articleList: result.articleList,
-                recommendList: result.recommendList,
-                WriterList: result.WriterList 
-            }
-            this.props.changeHomeData(action);
-        }).catch(() => {
-            console.log('get home data erro');
-        })
-        
+        this.props.changeHomeData();
+        this.bindEvents(); // 挂载完成后绑定事件      
+    }
+    componentWillUnmount(){
+        window.removeEventListener('scroll',this.props.changeScrollTopshow);
+    } //当组件移除的时候也一定要把绑定的事件移除  
+
+    bindEvents () { //往window上绑定scroll事件监听
+        window.addEventListener('scroll',this.props.changeScrollTopshow);
     }
 }
+ 
+
+const mapStateToProps = (state) => ({
+    showScroll: state.getIn(['home', 'showScroll'])
+})
+
 const mapDispatchToProps = (dispatch) =>({
-    changeHomeData(action) {
-        dispatch(action);
-        console.log(action)
+    changeHomeData() {
+            const action = actionCreators.getHomeInfo();
+            dispatch(action);
+    },
+    changeScrollTopshow () {
+        if (document.documentElement.scrollTop > 500) {
+            dispatch(actionCreators.toggleTopShow(true))
+        }else{
+            dispatch(actionCreators.toggleTopShow(false))
+        }
+        console.log(document.documentElement.scrollTop)
     }
+    
 
 })
-export default connect(null,mapDispatchToProps) (Home);
+export default connect(mapStateToProps, mapDispatchToProps) (Home);
