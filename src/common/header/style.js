@@ -9,9 +9,7 @@ export const HeaderWrapper = styled.div `
 `;//创建了应该带样式的div标签组件
 
 //logo start
-export const Logo = styled.a.attrs({
-    href:'/'
-}) `
+export const Logo = styled.div `
     position:absolute;
     top:0;
     left:0;

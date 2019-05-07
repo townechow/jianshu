@@ -8,22 +8,24 @@ import store from './store/index.js';
 import Home from './pages/home/index'
 import Detail from './pages/detail/index'
 
-function App() {
+function App() {    // 另一种写法class App extends Component { render{() return()}}
   return (
-    <Fragment>
-      <Provider store={store}>
-      <GlobalStyled/>
-      <IconfontStyled/>
-        <Header/>
-        <BrowserRouter>
-          <Fragment>
-            <Route path='/' exact component ={Home}></Route>
-            <Route path='/detail' exact component ={Detail}></Route>
-          </Fragment>
-        </BrowserRouter>
-      </Provider>
-    </Fragment>
-  );
+	<Fragment>
+		<Provider store={store}>
+		<GlobalStyled/>
+		<IconfontStyled/>       
+			<BrowserRouter>
+			<Fragment>
+				<Header/>
+				<Route path='/' exact component ={Home}></Route>
+				<Route path='/detail/:id' exact component ={Detail}></Route>
+				 {/* /detail/:id 访问该路径再传入参数id*/}
+			</Fragment>
+			</BrowserRouter>
+		</Provider>
+	</Fragment>
+);
 }
 
 export default App;
+

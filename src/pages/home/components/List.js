@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import * as actionCreators from '../store/actionCreators'
 
 import {
@@ -8,7 +9,7 @@ import {
     LoadMore
 } from '../style';
 
-class List extends Component {
+class List extends PureComponent {
     render() {
         const { list,getMore,page } = this.props
         return(
@@ -16,7 +17,8 @@ class List extends Component {
             {
                 list.map((item,index) =>{
                     return (
-                        <ListItem key= {index}> {/*item.get('id')*/}
+                       <Link key= {index} to={'/detail/' + item.get('id')}>
+                           <ListItem > {/*key 要改为item.get('id')*/}
                             <img
                                 className='list-pic'
                                 src={item.get('imgUrl')}
@@ -27,6 +29,7 @@ class List extends Component {
                                 <p className='desc'>{item.get('desc')}</p>
                             </ListInfo>
                         </ListItem>
+                        </Link> 
                     )
                 })
             }

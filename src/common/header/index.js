@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import {connect} from 'react-redux';
+import { Link }  from 'react-router-dom';
 import  {actionCreators} from './store'
 import { 
     HeaderWrapper,
@@ -18,7 +19,7 @@ import {
     Button,
  } from './style.js';
 
- class Header extends Component {
+ class Header extends PureComponent {
     getListArea () {
         const { focused, list, page,mouseIn, handelMouseEnter, handelMouseLeave, totalPage,handleChangePage} = this.props;
         const newList = list.toJS(); //把不可变list转换为可变
@@ -60,38 +61,40 @@ import {
         const { focused, handleInputFocus,handleInputBlur,list}=this.props;
         return(
             <HeaderWrapper>
-           <Logo/>
-           <Nav>
-               <NavItem className='left active'>首页</NavItem>
-               <NavItem className='left'>下载App</NavItem>
-               <NavItem className='right'>登录</NavItem>
-               <NavItem className='right'>
-               <span className="iconfont">&#xe636;</span>
-               </NavItem>
-               <SearchWrapper>
-               <CSSTransition
-                    in={focused}
-                    timeout={400}
-                    classNames="slide"
-                >
-                    <NavSearch
-                        className={focused ? 'focused':''}
-                        onFocus={() => handleInputFocus(list)}
-                        onBlur={handleInputBlur}
-                    >
-                    </NavSearch>
-                </CSSTransition>
-                <span  className={focused ? 'focused iconfont zoom':'iconfont zoom'}>&#xe6a8;</span>
-                 {this.getListArea()}
-               </SearchWrapper>
-           </Nav>
-           <Addition>
-               <Button className='writting'>
-               <span className="iconfont">&#xe602;</span>
-               写文章
-               </Button>
-               <Button className='reg'>注册</Button>
-           </Addition>
+                <Link to= '/'>
+                    <Logo/>
+                </Link>
+                <Nav>
+                    <NavItem className='left active'>首页</NavItem>
+                    <NavItem className='left'>下载App</NavItem>
+                    <NavItem className='right'>登录</NavItem>
+                    <NavItem className='right'>
+                    <span className="iconfont">&#xe636;</span>
+                    </NavItem>
+                    <SearchWrapper>
+                        <CSSTransition
+                            in={focused}
+                            timeout={400}
+                            classNames="slide"
+                        >
+                            <NavSearch
+                                className={focused ? 'focused':''}
+                                onFocus={() => handleInputFocus(list)}
+                                onBlur={handleInputBlur}
+                            >
+                            </NavSearch>
+                        </CSSTransition>
+                        <span  className={focused ? 'focused iconfont zoom':'iconfont zoom'}>&#xe6a8;</span>
+                        {this.getListArea()}
+                    </SearchWrapper>
+                </Nav>
+                <Addition>
+                    <Button className='writting'>
+                    <span className="iconfont">&#xe602;</span>
+                    写文章
+                    </Button>
+                    <Button className='reg'>注册</Button>
+                </Addition>
         </HeaderWrapper>
         )
     }

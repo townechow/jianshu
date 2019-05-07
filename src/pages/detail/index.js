@@ -1,11 +1,34 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux'; 
+import * as actionCreators from './store/actionCreators'
+import { DetailWrapper, Header, Content }  from './style'; 
 
-class Detail extends Component {
-    render() {
+class Detail extends PureComponent {
+    render() {       
         return(
-            <div>detail page</div>
+            <DetailWrapper>
+                <Header>
+                     {this.props.title}           
+                </Header>
+                <Content dangerouslySetInnerHTML={{__html:this.props.content}}/>
+                 
+            </DetailWrapper>
         )
+    }
+    componentDidMount(){
+        this.props.getDetail(this.props.match.params.id);
     }
 }
 
-export default Detail;
+const mapState = (state) => ({
+    title: state.getIn(['detail', 'title']),
+    content: state.getIn(['detail', 'content'])
+})
+
+const mapDispatch = (dispatch) => ({
+    getDetail(id) {
+        dispatch(actionCreators.getDetailAction(id));
+    }
+})
+
+export default connect(mapState, mapDispatch)(Detail);
