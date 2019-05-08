@@ -2,11 +2,13 @@ import React,{ Fragment } from 'react';
 import { BrowserRouter, Route} from "react-router-dom";
 import { GlobalStyled } from './style.js'
 import {Provider } from 'react-redux';
-import { IconfontStyled } from './statics/iconfont/iconfont.js'
+import { IconfontStyled } from './statics/iconfont/iconfont.js';
 import Header from './common/header';
 import store from './store/index.js';
-import Home from './pages/home/index'
-import Detail from './pages/detail/index'
+import Home from './pages/home/index';
+import Detail from './pages/detail/loadaber.js';
+import Login from './pages/login/index';
+import Write from './pages/write/index';
 
 function App() {    // 另一种写法class App extends Component { render{() return()}}
   return (
@@ -19,6 +21,8 @@ function App() {    // 另一种写法class App extends Component { render{() re
 				<Header/>
 				<Route path='/' exact component ={Home}></Route>
 				<Route path='/detail/:id' exact component ={Detail}></Route>
+				<Route path='/write' exact component ={Write}></Route>
+				<Route path='/login' exact component ={Login}></Route>
 				 {/* /detail/:id 访问该路径再传入参数id*/}
 			</Fragment>
 			</BrowserRouter>
