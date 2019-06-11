@@ -10,7 +10,7 @@ import Detail from './pages/detail/loadaber.js';
 import Login from './pages/login/index';
 import Write from './pages/write/index';
 
-function App() {    // 另一种写法class App extends Component { render{() return()}}
+function App() {    // 另一种写法class App extends Component { render(){ return()}}
   return (
 	<Fragment>
 		<Provider store={store}>
