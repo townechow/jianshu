@@ -62,7 +62,7 @@ import {
         const { focused, handleInputFocus,handleInputBlur,list,  login, handelLogout}=this.props;
         return(
             <HeaderWrapper>
-                <Link to= '/'>
+                <Link to= '/index'>
                     <Logo/>
                 </Link>
                 <Nav>                   

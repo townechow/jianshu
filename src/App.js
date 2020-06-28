@@ -19,7 +19,7 @@ function App() {    // 另一种写法class App extends Component { render(){ re
 			<BrowserRouter>
 			<Fragment>
 				<Header/>
-				<Route path='/' exact component ={Home}></Route>
+				<Route path='/index' exact component ={Home}></Route>
 				<Route path='/detail/:id' exact component ={Detail}></Route>
 				<Route path='/write' exact component ={Write}></Route>
 				<Route path='/login' exact component ={Login}></Route>
