@@ -6,7 +6,9 @@ import { IconfontStyled } from './statics/iconfont/iconfont.js';
 import Header from './common/header';
 import store from './store/index.js';
 import Home from './pages/home/index';
-import Detail from './pages/detail/loadaber.js';
+// import Detail from './pages/detail/loadaber.js';
+import Detail from './pages/detail/index';
+
 import Login from './pages/login/index';
 import Write from './pages/write/index';
 
