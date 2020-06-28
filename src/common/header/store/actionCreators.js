@@ -36,7 +36,7 @@ export const changePage= (page) => ({
 // 通过中间件对dispatch封装升级，可以反回函数。
 export const getList = () => {
     return (dispatch) => {
-        axios.get('./api/headerList.json').then((res) =>{
+        axios.get(`${window.beforeRoute}/api/headerList.json`).then((res) =>{
             const data = res.data;
             dispatch(changeList(data.data));            
         }).catch(() => {
