@@ -3,7 +3,7 @@ import Loadable from 'react-loadable';
 // import Loading from './my-loading-component';
 
 const LoadableComponent = Loadable({
-  loader: () => import('./'),
+  loader: () => import('./index.js'),
   loading() { //加载过程展示的内容，JSX语法记得引入 React;
       return <div>正在加载...</div>
   }
