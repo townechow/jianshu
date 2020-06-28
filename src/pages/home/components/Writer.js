@@ -30,12 +30,12 @@ class Writer extends PureComponent {
                         this.props.list.map((item) => (
                             
                             <WriterItem key ={item.get('id')}>
-                                <a className='avatar' href='/'>
+                                <a className='avatar' href={`${window.beforeRoute}/index`}>
                                     <img src={item.get('imgUrl')}
                                     alt=''/>
                                 </a>
-                                <a className='follow' href='/'>+关注</a>  
-                                <a className='name' href='/'>{item.get('name')}</a>  
+                                <a className='follow' href={`${window.beforeRoute}/index`}>+关注</a>  
+                                <a className='name' href={`${window.beforeRoute}/index`}>{item.get('name')}</a>  
                                 <p>写了623.4k字 · 12.1k喜欢</p>                    
                             </WriterItem>
                         )   

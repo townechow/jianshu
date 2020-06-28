@@ -19,10 +19,10 @@ function App() {    // 另一种写法class App extends Component { render(){ re
 			<BrowserRouter>
 			<Fragment>
 				<Header/>
-				<Route path='/index' exact component ={Home}></Route>
-				<Route path='/detail/:id' exact component ={Detail}></Route>
-				<Route path='/write' exact component ={Write}></Route>
-				<Route path='/login' exact component ={Login}></Route>
+				<Route path={`${window.beforeRoute}/index`} exact component ={Home}></Route>
+				<Route path={`${window.beforeRoute}/detail/:id`} exact component ={Detail}></Route>
+				<Route path={`${window.beforeRoute}/write`} exact component ={Write}></Route>
+				<Route path={`${window.beforeRoute}/login`} exact component ={Login}></Route>
 				 {/* /detail/:id 访问该路径再传入参数id*/}
 			</Fragment>
 			</BrowserRouter>

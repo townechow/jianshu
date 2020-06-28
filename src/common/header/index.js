@@ -62,7 +62,7 @@ import {
         const { focused, handleInputFocus,handleInputBlur,list,  login, handelLogout}=this.props;
         return(
             <HeaderWrapper>
-                <Link to= '/index'>
+                <Link to= {`${window.beforeRoute}/index`}>
                     <Logo/>
                 </Link>
                 <Nav>                   
@@ -70,7 +70,7 @@ import {
                     <NavItem className='left'>下载App</NavItem>
 
                     { login ? <NavItem onClick={handelLogout} className='right'>退出</NavItem> : 
-                   <Link to='/login'><NavItem className='right'>登录</NavItem></Link> }
+                   <Link to={`${window.beforeRoute}/login`}><NavItem className='right'>登录</NavItem></Link> }
                    
                     <NavItem className='right'>
                     <span className="iconfont">&#xe636;</span>
@@ -93,7 +93,7 @@ import {
                     </SearchWrapper>
                 </Nav>
                 <Addition>
-                    <Link to='/write'>
+                    <Link to={`${window.beforeRoute}/write`}>
                         <Button className='writting'>
                         <span className="iconfont">&#xe602;</span>
                         写文章

@@ -17,7 +17,7 @@ class List extends PureComponent {
             {
                 list.map((item,index) =>{
                     return (
-                       <Link key= {index} to={'/detail/' + item.get('id')}>
+                       <Link key= {index} to={`${window.beforeRoute}/detail/` + item.get('id')}>
                            <ListItem > {/*key 要改为item.get('id')*/}
                             <img
                                 className='list-pic'

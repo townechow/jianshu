@@ -20,7 +20,7 @@ class login extends PureComponent {
                 </LoginWrapper>                
             )
         }else{ // 数否则则：
-            return <Redirect to='/'/>;
+            return <Redirect to={`${window.beforeRoute}/index`}/>;
         }
     }
    

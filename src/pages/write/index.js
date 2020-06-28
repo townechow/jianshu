@@ -12,7 +12,7 @@ class Write extends PureComponent {
                      <div>写文章</div>  
             )
         }else{ // 否则：
-            return <Redirect to='/login'/>;
+            return <Redirect to={`${window.beforeRoute}/login`}/>;
         }
     }
    
